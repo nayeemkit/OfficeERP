@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 import { AuthService } from '@core/auth/auth.service';
 
 @Component({
@@ -11,10 +13,12 @@ import { AuthService } from '@core/auth/auth.service';
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    MatListModule,
   ],
   template: `
     <mat-toolbar color="primary">
@@ -30,9 +34,22 @@ import { AuthService } from '@core/auth/auth.service';
       <h2>Welcome, {{ authService.user()?.fullName }}!</h2>
 
       <div class="card-grid">
-        <mat-card>
+        @if (authService.hasAnyRole('ADMIN', 'MANAGER')) {
+          <mat-card class="module-card" routerLink="/users">
+            <mat-card-header>
+              <mat-icon mat-card-avatar class="card-icon">manage_accounts</mat-icon>
+              <mat-card-title>User Management</mat-card-title>
+              <mat-card-subtitle>Create, edit, manage users</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Manage system users and roles</p>
+            </mat-card-content>
+          </mat-card>
+        }
+
+        <mat-card class="module-card">
           <mat-card-header>
-            <mat-icon mat-card-avatar>people</mat-icon>
+            <mat-icon mat-card-avatar class="card-icon">people</mat-icon>
             <mat-card-title>HR Module</mat-card-title>
             <mat-card-subtitle>Employees, Leave, Attendance</mat-card-subtitle>
           </mat-card-header>
@@ -41,9 +58,9 @@ import { AuthService } from '@core/auth/auth.service';
           </mat-card-content>
         </mat-card>
 
-        <mat-card>
+        <mat-card class="module-card">
           <mat-card-header>
-            <mat-icon mat-card-avatar>inventory_2</mat-icon>
+            <mat-icon mat-card-avatar class="card-icon">inventory_2</mat-icon>
             <mat-card-title>Inventory</mat-card-title>
             <mat-card-subtitle>Items, Stock, Assets</mat-card-subtitle>
           </mat-card-header>
@@ -52,9 +69,9 @@ import { AuthService } from '@core/auth/auth.service';
           </mat-card-content>
         </mat-card>
 
-        <mat-card>
+        <mat-card class="module-card">
           <mat-card-header>
-            <mat-icon mat-card-avatar>account_balance</mat-icon>
+            <mat-icon mat-card-avatar class="card-icon">account_balance</mat-icon>
             <mat-card-title>Finance</mat-card-title>
             <mat-card-subtitle>Expenses, Invoices, Budget</mat-card-subtitle>
           </mat-card-header>
@@ -63,9 +80,9 @@ import { AuthService } from '@core/auth/auth.service';
           </mat-card-content>
         </mat-card>
 
-        <mat-card>
+        <mat-card class="module-card">
           <mat-card-header>
-            <mat-icon mat-card-avatar>assignment</mat-icon>
+            <mat-icon mat-card-avatar class="card-icon">assignment</mat-icon>
             <mat-card-title>Projects</mat-card-title>
             <mat-card-subtitle>Tasks, Milestones</mat-card-subtitle>
           </mat-card-header>
@@ -94,9 +111,9 @@ import { AuthService } from '@core/auth/auth.service';
       gap: 16px;
       margin-top: 16px;
     }
-    mat-card { cursor: pointer; }
-    mat-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
-    mat-icon[mat-card-avatar] {
+    .module-card { cursor: pointer; transition: box-shadow 0.2s; }
+    .module-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .card-icon {
       font-size: 32px;
       width: 40px;
       height: 40px;

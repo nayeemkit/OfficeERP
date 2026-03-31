@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/office-erp.iml" filepath="$PROJECT_DIR$/.idea/office-erp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/office-erp-backend.main.iml" filepath="$PROJECT_DIR$/.idea/modules/office-erp-backend.main.iml" />
     </modules>
   </component>
 </project>
