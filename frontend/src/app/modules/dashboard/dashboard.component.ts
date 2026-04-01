@@ -18,7 +18,6 @@ import { AuthService } from '@core/auth/auth.service';
       <span class="user-info">{{ authService.user()?.fullName }} ({{ authService.user()?.role }})</span>
       <button mat-icon-button (click)="authService.logout()"><mat-icon>logout</mat-icon></button>
     </mat-toolbar>
-
     <div class="content">
       <h2>Welcome, {{ authService.user()?.fullName }}!</h2>
       <div class="grid">
@@ -28,48 +27,36 @@ import { AuthService } from '@core/auth/auth.service';
             <mat-card-title>User Management</mat-card-title>
             <mat-card-subtitle>Create, edit, manage users</mat-card-subtitle>
           </mat-card>
-
           <mat-card class="card" routerLink="/hr/departments">
             <mat-icon class="card-icon">business</mat-icon>
             <mat-card-title>Departments</mat-card-title>
             <mat-card-subtitle>Manage departments</mat-card-subtitle>
           </mat-card>
-
           <mat-card class="card" routerLink="/hr/employees">
             <mat-icon class="card-icon">badge</mat-icon>
             <mat-card-title>Employees</mat-card-title>
-            <mat-card-subtitle>Employee directory & management</mat-card-subtitle>
+            <mat-card-subtitle>Employee directory</mat-card-subtitle>
+          </mat-card>
+          <mat-card class="card" routerLink="/hr/leave">
+            <mat-icon class="card-icon">event_available</mat-icon>
+            <mat-card-title>Leave Management</mat-card-title>
+            <mat-card-subtitle>Apply, approve, track leave</mat-card-subtitle>
           </mat-card>
         }
-
-        <mat-card class="card">
-          <mat-icon class="card-icon">event_available</mat-icon>
-          <mat-card-title>Leave Management</mat-card-title>
-          <mat-card-subtitle>Coming in Milestone 6</mat-card-subtitle>
-        </mat-card>
-
         <mat-card class="card">
           <mat-icon class="card-icon">schedule</mat-icon>
           <mat-card-title>Attendance</mat-card-title>
           <mat-card-subtitle>Coming in Milestone 7</mat-card-subtitle>
         </mat-card>
-
+        <mat-card class="card">
+          <mat-icon class="card-icon">payments</mat-icon>
+          <mat-card-title>Payroll</mat-card-title>
+          <mat-card-subtitle>Coming in Milestone 8</mat-card-subtitle>
+        </mat-card>
         <mat-card class="card">
           <mat-icon class="card-icon">inventory_2</mat-icon>
           <mat-card-title>Inventory</mat-card-title>
           <mat-card-subtitle>Coming in Milestone 9-10</mat-card-subtitle>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-icon class="card-icon">account_balance</mat-icon>
-          <mat-card-title>Finance</mat-card-title>
-          <mat-card-subtitle>Coming in Milestone 11-12</mat-card-subtitle>
-        </mat-card>
-
-        <mat-card class="card">
-          <mat-icon class="card-icon">assignment</mat-icon>
-          <mat-card-title>Projects</mat-card-title>
-          <mat-card-subtitle>Coming in Milestone 13</mat-card-subtitle>
         </mat-card>
       </div>
     </div>
