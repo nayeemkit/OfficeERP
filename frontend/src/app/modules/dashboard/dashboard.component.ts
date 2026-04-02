@@ -47,12 +47,12 @@ import { AuthService } from '@core/auth/auth.service';
             <mat-card-title>Attendance</mat-card-title>
             <mat-card-subtitle>Check-in, check-out, track hours</mat-card-subtitle>
           </mat-card>
+          <mat-card class="card" routerLink="/hr/payroll">
+            <mat-icon class="card-icon">payments</mat-icon>
+            <mat-card-title>Payroll</mat-card-title>
+            <mat-card-subtitle>Salary, payslips, PDF generation</mat-card-subtitle>
+          </mat-card>
         }
-        <mat-card class="card">
-          <mat-icon class="card-icon">payments</mat-icon>
-          <mat-card-title>Payroll</mat-card-title>
-          <mat-card-subtitle>Coming in Milestone 8</mat-card-subtitle>
-        </mat-card>
         <mat-card class="card">
           <mat-icon class="card-icon">inventory_2</mat-icon>
           <mat-card-title>Inventory</mat-card-title>
