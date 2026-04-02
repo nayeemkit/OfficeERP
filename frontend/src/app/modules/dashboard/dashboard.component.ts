@@ -42,12 +42,12 @@ import { AuthService } from '@core/auth/auth.service';
             <mat-card-title>Leave Management</mat-card-title>
             <mat-card-subtitle>Apply, approve, track leave</mat-card-subtitle>
           </mat-card>
+          <mat-card class="card" routerLink="/hr/attendance">
+            <mat-icon class="card-icon">schedule</mat-icon>
+            <mat-card-title>Attendance</mat-card-title>
+            <mat-card-subtitle>Check-in, check-out, track hours</mat-card-subtitle>
+          </mat-card>
         }
-        <mat-card class="card">
-          <mat-icon class="card-icon">schedule</mat-icon>
-          <mat-card-title>Attendance</mat-card-title>
-          <mat-card-subtitle>Coming in Milestone 7</mat-card-subtitle>
-        </mat-card>
         <mat-card class="card">
           <mat-icon class="card-icon">payments</mat-icon>
           <mat-card-title>Payroll</mat-card-title>
@@ -57,6 +57,11 @@ import { AuthService } from '@core/auth/auth.service';
           <mat-icon class="card-icon">inventory_2</mat-icon>
           <mat-card-title>Inventory</mat-card-title>
           <mat-card-subtitle>Coming in Milestone 9-10</mat-card-subtitle>
+        </mat-card>
+        <mat-card class="card">
+          <mat-icon class="card-icon">account_balance</mat-icon>
+          <mat-card-title>Finance</mat-card-title>
+          <mat-card-subtitle>Coming in Milestone 11-12</mat-card-subtitle>
         </mat-card>
       </div>
     </div>
