@@ -11,6 +11,8 @@ export const routes: Routes = [
   { path: 'hr/leave', loadComponent: () => import('./modules/hr/leave/leave-list.component').then(m => m.LeaveListComponent), canActivate: [authGuard, roleGuard('ADMIN', 'MANAGER')] },
   { path: 'hr/attendance', loadComponent: () => import('./modules/hr/attendance/attendance-list.component').then(m => m.AttendanceListComponent), canActivate: [authGuard, roleGuard('ADMIN', 'MANAGER')] },
   { path: 'hr/payroll', loadComponent: () => import('./modules/hr/payroll/payroll-list.component').then(m => m.PayrollListComponent), canActivate: [authGuard, roleGuard('ADMIN', 'MANAGER')] },
+  { path: 'inventory/items', loadComponent: () => import('./modules/inventory/items/item-list.component').then(m => m.ItemListComponent), canActivate: [authGuard] },
+  { path: 'inventory/stock', loadComponent: () => import('./modules/inventory/stock/stock-list.component').then(m => m.StockListComponent), canActivate: [authGuard] },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard' },
 ];
