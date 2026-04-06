@@ -13,8 +13,7 @@ import { AuthService } from '@core/auth/auth.service';
   imports: [CommonModule, RouterLink, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule],
   template: `
     <mat-toolbar color="primary">
-      <span>Office ERP</span>
-      <span class="spacer"></span>
+      <span>Office ERP</span><span class="spacer"></span>
       <span class="user-info">{{ authService.user()?.fullName }} ({{ authService.user()?.role }})</span>
       <button mat-icon-button (click)="authService.logout()"><mat-icon>logout</mat-icon></button>
     </mat-toolbar>
@@ -36,9 +35,11 @@ import { AuthService } from '@core/auth/auth.service';
             <mat-card-title>Payroll</mat-card-title><mat-card-subtitle>Salary, payslips, PDF generation</mat-card-subtitle></mat-card>
         }
         <mat-card class="card" routerLink="/inventory/items"><mat-icon class="card-icon">inventory_2</mat-icon>
-          <mat-card-title>Inventory Items</mat-card-title><mat-card-subtitle>Products, stock levels, low stock alerts</mat-card-subtitle></mat-card>
+          <mat-card-title>Inventory Items</mat-card-title><mat-card-subtitle>Products, stock levels, alerts</mat-card-subtitle></mat-card>
         <mat-card class="card" routerLink="/inventory/stock"><mat-icon class="card-icon">swap_horiz</mat-icon>
-          <mat-card-title>Stock Transactions</mat-card-title><mat-card-subtitle>Stock in/out history & audit trail</mat-card-subtitle></mat-card>
+          <mat-card-title>Stock Transactions</mat-card-title><mat-card-subtitle>Stock in/out audit trail</mat-card-subtitle></mat-card>
+        <mat-card class="card" routerLink="/inventory/assets"><mat-icon class="card-icon">devices</mat-icon>
+          <mat-card-title>Asset Management</mat-card-title><mat-card-subtitle>Register, assign, track assets</mat-card-subtitle></mat-card>
         <mat-card class="card"><mat-icon class="card-icon">account_balance</mat-icon>
           <mat-card-title>Finance</mat-card-title><mat-card-subtitle>Coming in Milestone 11-12</mat-card-subtitle></mat-card>
       </div>
