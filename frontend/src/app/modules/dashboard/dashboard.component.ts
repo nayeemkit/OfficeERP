@@ -32,9 +32,9 @@ import { AuthService } from '@core/auth/auth.service';
         <mat-card class="card" routerLink="/inventory/stock"><mat-icon class="ci">swap_horiz</mat-icon><mat-card-title>Stock</mat-card-title><mat-card-subtitle>Stock in/out trail</mat-card-subtitle></mat-card>
         <mat-card class="card" routerLink="/inventory/assets"><mat-icon class="ci">devices</mat-icon><mat-card-title>Assets</mat-card-title><mat-card-subtitle>Register, assign, track</mat-card-subtitle></mat-card>
         <mat-card class="card" routerLink="/finance/expenses"><mat-icon class="ci">receipt_long</mat-icon><mat-card-title>Expenses</mat-card-title><mat-card-subtitle>Submit & approve</mat-card-subtitle></mat-card>
-        <mat-card class="card" routerLink="/finance/invoices"><mat-icon class="ci">description</mat-icon><mat-card-title>Invoices</mat-card-title><mat-card-subtitle>Create & track invoices</mat-card-subtitle></mat-card>
-        <mat-card class="card" routerLink="/finance/budgets"><mat-icon class="ci">account_balance</mat-icon><mat-card-title>Budgets</mat-card-title><mat-card-subtitle>Dept budget management</mat-card-subtitle></mat-card>
-        <mat-card class="card"><mat-icon class="ci">assignment</mat-icon><mat-card-title>Projects</mat-card-title><mat-card-subtitle>Coming in Milestone 13</mat-card-subtitle></mat-card>
+        <mat-card class="card" routerLink="/finance/invoices"><mat-icon class="ci">description</mat-icon><mat-card-title>Invoices</mat-card-title><mat-card-subtitle>Create & track</mat-card-subtitle></mat-card>
+        <mat-card class="card" routerLink="/finance/budgets"><mat-icon class="ci">account_balance</mat-icon><mat-card-title>Budgets</mat-card-title><mat-card-subtitle>Dept budget mgmt</mat-card-subtitle></mat-card>
+        <mat-card class="card" routerLink="/projects"><mat-icon class="ci">assignment</mat-icon><mat-card-title>Projects</mat-card-title><mat-card-subtitle>Projects, tasks, milestones</mat-card-subtitle></mat-card>
       </div>
     </div>
   `,
