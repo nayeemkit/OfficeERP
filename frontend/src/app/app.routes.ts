@@ -15,6 +15,8 @@ export const routes: Routes = [
   { path: 'inventory/stock', loadComponent: () => import('./modules/inventory/stock/stock-list.component').then(m => m.StockListComponent), canActivate: [authGuard] },
   { path: 'inventory/assets', loadComponent: () => import('./modules/inventory/assets/asset-list.component').then(m => m.AssetListComponent), canActivate: [authGuard] },
   { path: 'finance/expenses', loadComponent: () => import('./modules/finance/expenses/expense-list.component').then(m => m.ExpenseListComponent), canActivate: [authGuard] },
+  { path: 'finance/invoices', loadComponent: () => import('./modules/finance/invoices/invoice-list.component').then(m => m.InvoiceListComponent), canActivate: [authGuard, roleGuard('ADMIN', 'MANAGER')] },
+  { path: 'finance/budgets', loadComponent: () => import('./modules/finance/budgets/budget-list.component').then(m => m.BudgetListComponent), canActivate: [authGuard, roleGuard('ADMIN', 'MANAGER')] },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '**', redirectTo: 'dashboard' },
 ];
