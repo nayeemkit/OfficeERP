@@ -21,6 +21,7 @@ import { AuthService } from '@core/auth/auth.service';
       <h2>Welcome, {{ authService.user()?.fullName }}!</h2>
       <div class="grid">
         @if (authService.hasAnyRole('ADMIN', 'MANAGER')) {
+          <mat-card class="card highlight" routerLink="/reports"><mat-icon class="ci">dashboard</mat-icon><mat-card-title>Reports & Analytics</mat-card-title><mat-card-subtitle>KPI dashboard with charts</mat-card-subtitle></mat-card>
           <mat-card class="card" routerLink="/users"><mat-icon class="ci">manage_accounts</mat-icon><mat-card-title>Users</mat-card-title><mat-card-subtitle>Manage users & roles</mat-card-subtitle></mat-card>
           <mat-card class="card" routerLink="/hr/departments"><mat-icon class="ci">business</mat-icon><mat-card-title>Departments</mat-card-title><mat-card-subtitle>Manage departments</mat-card-subtitle></mat-card>
           <mat-card class="card" routerLink="/hr/employees"><mat-icon class="ci">badge</mat-icon><mat-card-title>Employees</mat-card-title><mat-card-subtitle>Employee directory</mat-card-subtitle></mat-card>
@@ -34,7 +35,7 @@ import { AuthService } from '@core/auth/auth.service';
         <mat-card class="card" routerLink="/finance/expenses"><mat-icon class="ci">receipt_long</mat-icon><mat-card-title>Expenses</mat-card-title><mat-card-subtitle>Submit & approve</mat-card-subtitle></mat-card>
         <mat-card class="card" routerLink="/finance/invoices"><mat-icon class="ci">description</mat-icon><mat-card-title>Invoices</mat-card-title><mat-card-subtitle>Create & track</mat-card-subtitle></mat-card>
         <mat-card class="card" routerLink="/finance/budgets"><mat-icon class="ci">account_balance</mat-icon><mat-card-title>Budgets</mat-card-title><mat-card-subtitle>Dept budget mgmt</mat-card-subtitle></mat-card>
-        <mat-card class="card" routerLink="/projects"><mat-icon class="ci">assignment</mat-icon><mat-card-title>Projects</mat-card-title><mat-card-subtitle>Projects, tasks, milestones</mat-card-subtitle></mat-card>
+        <mat-card class="card" routerLink="/projects"><mat-icon class="ci">assignment</mat-icon><mat-card-title>Projects</mat-card-title><mat-card-subtitle>Tasks & milestones</mat-card-subtitle></mat-card>
       </div>
     </div>
   `,
@@ -43,6 +44,7 @@ import { AuthService } from '@core/auth/auth.service';
     .content{padding:24px;max-width:1200px;margin:0 auto}
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:16px}
     .card{cursor:pointer;padding:24px;transition:box-shadow .2s}.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .card.highlight{background:linear-gradient(135deg,#e3f2fd,#f3e5f5);border:2px solid #3f51b5}
     .ci{font-size:36px;width:40px;height:40px;color:#3f51b5;margin-bottom:12px}
   `],
 })
