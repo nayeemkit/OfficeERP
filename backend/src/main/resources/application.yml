@@ -56,6 +56,10 @@ app:
     access-key: ${MINIO_ACCESS_KEY:minio_user}
     secret-key: ${MINIO_SECRET_KEY:minio_pass}
     bucket: erp-files
+  payment:
+    success-url: https://errorless-defectively-miguelina.ngrok-free.dev/api/v1/finance/budgets/success
+    fail-url: https://errorless-defectively-miguelina.ngrok-free.dev/api/v1/finance/budgets/fail
+    cancel-url: https://errorless-defectively-miguelina.ngrok-free.dev/api/v1/payments/cancel
 
 # Springdoc / Swagger
 springdoc:
@@ -65,3 +69,13 @@ springdoc:
     path: /swagger-ui.html
     tags-sorter: alpha
     operations-sorter: alpha
+
+sslcommerz:
+  store:
+    id: karoo69f8757001033
+    password: karoo69f8757001033@ssl
+  url:
+    initiate: https://sandbox.sslcommerz.com/gwprocess/v4/api.php
+    validation: https://sandbox.sslcommerz.com/validator/api/validationserverphp.php
+  is-sandbox: true
+

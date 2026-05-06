@@ -44,25 +44,27 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt = authHeader.substring(7);
 
         try {
+            // Use your existing validation check
             if (jwtService.isTokenValid(jwt)) {
-                UUID userId = jwtService.extractUserId(jwt);
+                UUID userId = jwtService.extractUserId(jwt); // Use your existing method
 
-                User user = userRepository.findById(userId).orElse(null);
+                if (userId != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                    User user = userRepository.findById(userId).orElse(null);
 
-                if (user != null && user.isEnabled()
-                        && SecurityContextHolder.getContext().getAuthentication() == null) {
-
-                    UsernamePasswordAuthenticationToken authToken =
-                            new UsernamePasswordAuthenticationToken(
-                                    user, null, user.getAuthorities()
-                            );
-                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                    if (user != null && user.isEnabled()) {
+                        UsernamePasswordAuthenticationToken authToken =
+                                new UsernamePasswordAuthenticationToken(
+                                        user, null, user.getAuthorities()
+                                );
+                        authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                        SecurityContextHolder.getContext().setAuthentication(authToken);
+                    }
                 }
             }
         } catch (Exception e) {
-            log.debug("JWT authentication failed: {}", e.getMessage());
+            // If JWT fails (expired/wrong), clear context so it stays anonymous
+            SecurityContextHolder.clearContext();
+            log.debug("JWT validation failed: {}", e.getMessage());
         }
 
         filterChain.doFilter(request, response);
@@ -77,6 +79,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         return path.startsWith("/api/auth/")
                 || path.startsWith("/swagger-ui")
                 || path.startsWith("/api-docs")
-                || path.startsWith("/v3/api-docs");
+                || path.startsWith("/v3/api-docs")
+                || path.startsWith("/api/v1/payments/")
+                || path.startsWith("/api/v1/finance/budgets/success");
     }
 }
